@@ -1,0 +1,28 @@
+import requests  
+import json  
+import random  
+
+url = "https://clownfish-app-f7unk.ondigitalocean.app/v2/tasks/check"  
+
+headers = {  
+    "accept": "*/*",  
+    "accept-language": "en-US,en;q=0.9",  
+    "content-type": "application/json",  
+    "launch-params": "query_id=AAE6de8MAAAAADp17wxjuHuO&user=%7B%22id%22%3A217019706%2C%22first_name%22%3A%22%DC%A9%DC%A2%DC%9A%DC%A0%DC%A9%DC%A2%22%2C%22last_name%22%3A%22%F0%93%82%89%22%2C%22username%22%3A%22aslooni%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1727557027&hash=c68108eae159e9dd02c957ef91f83f473fd34f877fad6d96c709cec4a6c2c060",  
+    "origin": "https://miniapp.yesco.in",  
+    "priority": "u=1, i",  
+    "referer": "https://miniapp.yesco.in/",  
+    "sec-ch-ua": '"Microsoft Edge";v="129", "Not=A?Brand";v="8", "Chromium";v="129", "Microsoft Edge WebView2";v="129"',  
+    "sec-ch-ua-mobile": "?0",  
+    "sec-ch-ua-platform": "Windows",  
+    "sec-fetch-dest": "empty",  
+    "sec-fetch-mode": "cors",  
+    "sec-fetch-site": "cross-site",  
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0"  
+}  
+
+
+for i in range(1,600):  
+    data = {"id": i}  
+    response = requests.post(url, headers=headers, data=json.dumps(data))  
+    print(f"{i} _ Response: {response.json()}")
